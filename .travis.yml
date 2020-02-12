@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vijay/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run vijay/docker-react npm run test -- --coverage
